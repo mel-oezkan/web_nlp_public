@@ -7,7 +7,7 @@ async function load_checker(){
     document.getElementById('checker').innerHTML="Script is loaded."
 }
 
-function text() {
+async function text() {
     document.getElementById('name').innerHTML= nameGenerator();
 }
 
@@ -20,4 +20,3 @@ function nameGenerator() {
 
     return name;
 }
-
