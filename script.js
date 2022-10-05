@@ -7,7 +7,7 @@ async function load_checker(){
     document.getElementById('checker').innerHTML="Script is loaded."
 }
 
-async function fetchRequest () {
+async function fetchRequest() {
     fetch()
         .then((response) => response.json())
         .then((data) => console.log(data));
