@@ -1,9 +1,10 @@
 
-// Find response box
-var name = document.getElementById("response");
-
-function model_check() {
-    document.getElementById('checker').innerHTML="Model loaded."
+async function load_checker(){	
+  	
+    // loads the model
+    // ... 
+    
+    document.getElementById('checker').innerHTML="Script is loaded."
 }
 
 function text() {
