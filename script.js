@@ -6,7 +6,7 @@ async function run_model(){
     var subject = document.getElementById("input").value;
 
     const input = `You are a professor in an oral exam. The subject is ${subject}. 
-    Ask me a question about the subject and dont ask the same question twice.{}`
+    Ask me a question about the subject and dont answer it.{}`
 
     // Use the API to get the current user's name
     const response = await fetch('https://api.openai.com/v1/completions', {
