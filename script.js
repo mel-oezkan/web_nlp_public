@@ -10,7 +10,8 @@ async function run_model(){
     console.log(mode);
 
     const input = `You are a professor in an oral exam at a university.
-    The subject is ${subject}. Ask me a ${mode} question about the subject and dont answer it.{}`
+    The subject is ${subject}. Ask me a ${mode} question about the subject and answer it
+    in a new line.{}`
 
     // Use the API to get the current user's name
     const response = await fetch('https://api.openai.com/v1/completions', {
