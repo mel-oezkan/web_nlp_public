@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Document</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     </head>
     <body>
         <div>
@@ -26,6 +27,22 @@
             <button type="respose_test" onclick="run_model()">Direct API test</button>
         </div>
 
+        <br>
+        <br>
+
+        <div>
+            ----------- Speech Test -----------
+        </div>
+
+        <br>
+        <br>
+
+        <button id="start-btn" class="btn btn-danger btn-block">Start</button>
+        <p id="instructions">Press the Start button</p>
+
+        <textarea id="textbox" rows="6" class="form-control"></textarea>
+
         <script src="script.js"></script>
+        <script src="speech.js"></script>
     </body>
 </html>
