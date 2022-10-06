@@ -4,9 +4,13 @@ async function run_model(){
 
     // Get the text from the input box, id = input
     var subject = document.getElementById("input").value;
+    var mode = document.getElementById("mode").value;
+    
+    console.log(subject);
+    console.log(mode);
 
-    const input = `You are a professor in an oral exam. The subject is ${subject}. 
-    Ask me a question about the subject and dont answer it.{}`
+    const input = `You are a professor in an oral exam at a university.
+    The subject is ${subject}. Ask me a ${mode} question about the subject and dont answer it.{}`
 
     // Use the API to get the current user's name
     const response = await fetch('https://api.openai.com/v1/completions', {

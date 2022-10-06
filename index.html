@@ -13,6 +13,14 @@
         <p>Enter some text for completion below:</p>
         <input type="text" id="input">
 
+        <label for="mode">Choose a difficulty:</label>
+
+        <select name="mode" id="mode">
+            <option value="easy">Easy</option>
+            <option value="normal">Normal</option>
+            <option value="hard">Hard</option>
+        </select>
+
         <div>
             <p class="response" id="name" style="color:rgb(0, 0, 0); font-size: 30px"></p>
             <button type="respose_test" onclick="run_model()">Direct API test</button>
