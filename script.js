@@ -3,8 +3,9 @@
 async function run_model(){
 
     // Get the text from the input box, id = input
-    //var input = document.getElementById("input").value;
-    const input = `You are a professor in an oral exam. The subject is computer science. 
+    var subject = document.getElementById("input").value;
+
+    const input = `You are a professor in an oral exam. The subject is ${subject}. 
     Ask me a question about the subject and dont ask the same question twice.{}`
 
     // Use the API to get the current user's name
