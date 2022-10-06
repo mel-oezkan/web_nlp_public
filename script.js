@@ -3,7 +3,9 @@
 async function run_model(){
 
     // Get the text from the input box, id = input
-    var input = document.getElementById("input").value;
+    //var input = document.getElementById("input").value;
+    const input = `You are a professor in an oral exam. The subject is computer science. 
+    Ask me a question about the subject and dont ask the same question twice.{}`
 
     // Use the API to get the current user's name
     const response = await fetch('https://api.openai.com/v1/completions', {
@@ -20,7 +22,7 @@ async function run_model(){
             top_p: 1,
             frequency_penalty: 0,
             presence_penalty: 0,
-            stop: ['\n']
+            stop: ['{}']
         })
     });
     const data = await response.json();
