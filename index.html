@@ -7,23 +7,34 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     </head>
     <body>
+
+        <div class="MainContent">
+
         <div>
             <p class="response" id="name_2" style="color:rgb(0, 0, 0); font-size: 30px"></p>
             <button type="respose_test" onclick="fetchRequest()">Fetch request test (console)</button>
         </div>
 
-        <p>Enter some text for completion below:</p>
-        <input type="text" id="input">
+        <div class="ContentInput">
 
-        <label for="mode">Choose a difficulty:</label>
+        <div class="PromptInput">
+            <p>Enter some text for completion below:</p>
+            <input type="text" id="input">
+        </div>    
 
-        <select name="mode" id="mode">
-            <option value="easy">Easy</option>
-            <option value="normal">Normal</option>
-            <option value="hard">Hard</option>
-        </select>
+        
+        <div class="ModeSelector">
+            <label for="mode">Choose a difficulty:</label>
+            <select name="mode" id="mode">
+                <option value="easy">Easy</option>
+                <option value="normal">Normal</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
 
-        <div>
+        <div 
+            class="UserInput"
+        >
             <p class="response" id="name" style="color:rgb(0, 0, 0); font-size: 30px"></p>
             <button 
                 class="Btn-Request"
@@ -33,6 +44,8 @@
                 Direct API test
             </button>
         </div>
+        </div>
+
 
         <br>
         <br>
@@ -51,5 +64,8 @@
 
         <script src="script.js"></script>
         <script src="speech.js"></script>
+    
+    </div>
+    
     </body>
 </html>

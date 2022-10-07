@@ -1,8 +1,83 @@
 html {
     background-color: #F8F8F8;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.Btn-Request {
+
+body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100vw;
+}
+
+.MainContent {
+    margin: 20px 10vw;
+    text-align: center;
+}
+
+
+.MainContent > .ContentInput {
+
+    background-color: #E5E5E5;
+    width: 600px;
+    height: 300px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto auto auto;
+}
+
+.MainContent > .ContentInput > .PromptInput {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.MainContent > .ContentInput > .PromptInput > p{
+    margin: 0;
+}
+
+.MainContent > .ContentInput > .PromptInput > input {
+    background-color: #A1A6B4;
+    outline: none;
+    height: 30px;
+    width: 300px;
+    padding-left: 10px;
+    color: white;
+    border: 2px solid rgba(0,0,0,0);
+}
+
+.MainContent > .ContentInput > .PromptInput > input[type=text]:focus {
+    background-color: inherit;
+    color: black;
+    border: 2px solid #A1A6B4;
+}
+
+.MainContent > .ContentInput > .ModeSelector {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    gap: 10px;
+}
+
+.MainContent > .ContentInput > .ModeSelector > select{
+    width: 100px;
+}
+
+
+.MainContent > .ContentInput > .UserInput {
+    justify-self: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.MainContent > .ContentInput > .UserInput > .Btn-Request {
     height: 40px;
     padding: 0 20px;
     color: white;
@@ -17,8 +92,4 @@ html {
 
 .Btn-Request:hover {
     background-color: #A1A6B4;
-}
-
-.UserInput {
-    margin: auto;
 }
