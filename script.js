@@ -1,5 +1,3 @@
-
-
 async function run_model(){
 
     // Get the text from the input box, id = input

@@ -19,17 +19,16 @@ recognition.onspeechend = function() {
 
 }
 
-recognition.onerror = function() {
- instruction.text("Try Again")
-
+recognition.onerror = function() {  
+    instruction.text("Try Again")
 }
 
 recognition.onresult = function(event) {
- var current = event.resultIndex;
- var transcript = event.results[current][0].transcript
+    var current = event.resultIndex;
+    var transcript = event.results[current][0].transcript
 
- content += transcript
- textbox.val(content)
+    content += transcript
+    textbox.val(content)
 
 }
 
