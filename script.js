@@ -1,3 +1,14 @@
+let n_Questions = [];
+
+function testIncrease() {
+    n_Questions = [...n_Questions].concat([Math.random() * 100])
+}
+
+function logQuestions () { 
+    console.log(n_Questions)
+}
+
+
 async function run_model(){
 
     // Get the text from the input box, id = input
@@ -29,10 +40,14 @@ async function run_model(){
             stop: ['{}']
         })
     });
+
+    // convert the data into json
     const data = await response.json();
+    
     console.log(data);
     console.log(data.choices[0].text);
 
+    // write the resulting result as item
     document.getElementById('name').innerHTML= data.choices[0].text;
 }
 
