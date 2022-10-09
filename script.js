@@ -77,7 +77,7 @@ async function run_model(){
         body: JSON.stringify({
             model: 'text-davinci-002',
             prompt: input_2,
-            max_tokens: 50,
+            max_tokens: 100,
             temperature: 0.8,
             top_p: 1,
             frequency_penalty: 0,
