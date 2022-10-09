@@ -2,8 +2,6 @@ function greet() {
     console.log("test");
 }
 
-
-
 function initalizeStorage () {
     console.log("outputs: ", localStorage.getItem("outputs"))
 }

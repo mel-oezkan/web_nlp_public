@@ -8,7 +8,6 @@ function logQuestions () {
     console.log(n_Questions)
 }
 
-
 async function run_model(){
 
     // Get the text from the input box, id = input
@@ -19,7 +18,7 @@ async function run_model(){
     console.log(mode);
 
     const input = `You are a professor in an oral exam at a university.
-    The subject is ${subject}. Ask me a ${mode} question about the subject and answer it
+    The subject is ${subject}. Ask me a ${mode} knowledge question about the subject and answer it
     in a new line.{}`
 
     // Use the API to get the current user's name
@@ -32,7 +31,7 @@ async function run_model(){
         body: JSON.stringify({
             model: 'text-davinci-002',
             prompt: input,
-            max_tokens: 150,
+            max_tokens: 50,
             temperature: 0.8,
             top_p: 1,
             frequency_penalty: 0,
@@ -44,38 +43,19 @@ async function run_model(){
     // convert the data into json
     const data = await response.json();
     
-    console.log(data);
-    console.log(data.choices[0].text);
+    // Split the string from the ? to the end into a new string
+    var request = data.choices[0].text.split("?");
+    var question = request[0] + "?";
+    var answer = request[1];
 
     // write the resulting result as item
-    document.getElementById('name').innerHTML= data.choices[0].text;
+    document.getElementById('name').innerHTML= question;
+
+    // Only show answer when the user clicks the button
+    document.getElementById('answer').innerHTML= answer;
+    document.getElementById('answer').style.display = "none";
 }
 
-async function fetchRequest() {
-    fetch()
-        .then((response) => response.json())
-        .then((data) => console.log(data));
-
-    const data = { username: 'example' };
-
-    fetch('https://api.openai.com/v1/completions', {
-        method: 'POST', 
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    
-        body: JSON.stringify(data),
-    })
-        .then((response) => response.json())
-        .then((data) => {
-            console.log('Success:', data);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-    
-} 
-
-async function text() {
-    document.getElementById('name').innerHTML= model();
+function show_answer(){
+    document.getElementById('answer').style.display = "block";
 }

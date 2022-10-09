@@ -102,3 +102,10 @@ body {
 .Btn-Request:hover {
     background-color: #A1A6B4;
 }
+
+
+.answer_box {
+    display: none;
+    color:rgb(0, 0, 0);
+    font-size: 30px;
+}
