@@ -1,5 +1,14 @@
+
+:root {
+    --PAGE_BACKGROUND_COLOR: #F8F8F8;
+    --MAIN_BOX_BACKGROUND_COLOR: #E5E5E5;
+    --MAIN_BOX_INPUT_COLOR: #A1A6B4;
+    --MAIN_BOX_REQUEST_BUTTON_COLOR: #94C5CC;
+}
+
+
 html {
-    background-color: #F8F8F8;
+    background-color: var(--PAGE_BACKGROUND_COLOR);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -20,7 +29,7 @@ body {
 
 .MainContent > .ContentInput {
 
-    background-color: #E5E5E5;
+    background-color: var(--MAIN_BOX_BACKGROUND_COLOR);
     width: 600px;
     display: flex;
     padding: 20px;
@@ -43,7 +52,7 @@ body {
 }
 
 .MainContent > .ContentInput > .PromptInput > input {
-    background-color: #A1A6B4;
+    background-color: var(--MAIN_BOX_INPUT_COLOR);
     outline: none;
     height: 30px;
     width: 300px;
@@ -83,7 +92,7 @@ body {
     color: white;
     display: flex;
     align-items: center;       
-    background-color: #94C5CC;
+    background-color: var(--MAIN_BOX_REQUEST_BUTTON_COLOR);
 
     font-weight: bold;
     border: none;
