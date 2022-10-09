@@ -54,8 +54,51 @@ async function run_model(){
     // Only show answer when the user clicks the button
     document.getElementById('answer').innerHTML= answer;
     document.getElementById('answer').style.display = "none";
+
+    // -------------------------------------------------------------------------------------
+    // Feedback (needs to be a separate function !!!!!!!!)
+    // -------------------------------------------------------------------------------------
+
+    const input_2 = `You are a professor in an oral exam at a university. 
+
+    The question is: ${question}
+    
+    The student responds: ${answer}
+    
+    Evaluate the students answer to the question and give an explanation.{}`
+
+    // Use the API to get the current user's name
+    const response_2 = await fetch('https://api.openai.com/v1/completions', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer REDACTED_API_KEY', // Max's API key
+        },
+        body: JSON.stringify({
+            model: 'text-davinci-002',
+            prompt: input_2,
+            max_tokens: 50,
+            temperature: 0.8,
+            top_p: 1,
+            frequency_penalty: 0,
+            presence_penalty: 0,
+            stop: ['{}']
+        })
+    });
+
+    const data_2 = await response_2.json();
+    var feedback = data_2.choices[0].text;
+
+    // Only show when button pressed
+    document.getElementById('feedback').innerHTML= feedback;
+    document.getElementById('feedback').style.display = "none";
 }
+
 
 function show_answer(){
     document.getElementById('answer').style.display = "block";
+}
+
+function show_feedback(){
+    document.getElementById('feedback').style.display = "block";
 }
