@@ -10,6 +10,8 @@ function logQuestions () {
 
 async function run_model(){
 
+    document.getElementById('feedback').style.display = "none";
+
     // Get the text from the input box, id = input
     var subject = document.getElementById("input").value;
     var mode = document.getElementById("mode").value;
@@ -31,7 +33,7 @@ async function run_model(){
         body: JSON.stringify({
             model: 'text-davinci-002',
             prompt: input,
-            max_tokens: 50,
+            max_tokens: 100,
             temperature: 0.8,
             top_p: 1,
             frequency_penalty: 0,
@@ -78,7 +80,7 @@ async function run_model(){
             model: 'text-davinci-002',
             prompt: input_2,
             max_tokens: 100,
-            temperature: 0.8,
+            temperature: 0,
             top_p: 1,
             frequency_penalty: 0,
             presence_penalty: 0,
@@ -91,7 +93,6 @@ async function run_model(){
 
     // Only show when button pressed
     document.getElementById('feedback').innerHTML= feedback;
-    document.getElementById('feedback').style.display = "none";
 }
 
 
