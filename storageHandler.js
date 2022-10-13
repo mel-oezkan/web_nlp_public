@@ -1,6 +1,4 @@
-function greet() {
-    console.log("test");
-}
+
 
 function initalizeStorage () {
     console.log("outputs: ", localStorage.getItem("outputs"))
@@ -16,7 +14,6 @@ function debugAddStorage() {
     localStorage.setItem('debug', serial_values);
     
     console.log(currValues)
-
 }
 
 function debugGetStorage() {

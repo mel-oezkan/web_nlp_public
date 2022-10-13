@@ -87,15 +87,20 @@ body {
 }
 
 .MainContent > .ContentInput > .UserInput > .Btn-Request {
-    height: 40px;
-    padding: 0 20px;
+    height: 50px;
+    padding: 0 25px 0 15px;
     color: white;
     display: flex;
-    align-items: center;       
-    background-color: var(--MAIN_BOX_REQUEST_BUTTON_COLOR);
+    gap: 10px;
+    align-items: center;
+    background-color: #14274E;
 
     font-weight: bold;
     border: none;
+}
+
+.Btn-Request > img {
+    height: 30px;
 }
 
 
