@@ -101,7 +101,8 @@ function testFunction (){
 async function generate_question() {
     
     // Get the text from the input box, id = input
-    const subject = document.getElementById("input").value ?? "Neuroscience";
+    let subject = document.getElementById("input").value;
+    subject = subject ? subject : "Neuroscience";
     const mode = document.getElementById("mode").value ?? "easy";
 
     console.log("subject: ", subject);
@@ -133,7 +134,7 @@ async function generate_question() {
 
     const data = await response.json();
     const resp_obj = split_response(data)
-    
+
     console.log(resp_obj);
     add_question(resp_obj);
 }
