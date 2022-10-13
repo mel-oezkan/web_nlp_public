@@ -1,5 +1,4 @@
 let n_Questions = [];
-
 function testIncrease() {
     n_Questions = [...n_Questions].concat([Math.random() * 100])
 }
@@ -95,11 +94,63 @@ async function run_model(){
     document.getElementById('feedback').innerHTML= feedback;
 }
 
+function testFunction (){
+    console.log("HALLOS");
+}
+
+async function generate_question() {
+    
+    // Get the text from the input box, id = input
+    const subject = document.getElementById("input").value ?? "Neuroscience";
+    const mode = document.getElementById("mode").value ?? "easy";
+
+    console.log("subject: ", subject);
+    console.log("mode: ", mode);
+
+    // creating the prompt for the API call
+    const input = `You are a professor in an oral exam at a university.
+    The subject is ${subject}. Ask me a ${mode} knowledge question about the subject and answer it
+    in a new line.{}`
+
+    // Use the API to get the current user's name
+    const response = await fetch('https://api.openai.com/v1/completions', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer REDACTED_API_KEY', // Max's API key
+        },
+        body: JSON.stringify({
+            model: 'text-davinci-002',
+            prompt: input,
+            max_tokens: 100,
+            temperature: 0.8,
+            top_p: 1,
+            frequency_penalty: 0,
+            presence_penalty: 0,
+            stop: ['{}']
+        })
+    });
+
+    const data = await response.json();
+    const resp_obj = split_response(data)
+    
+    console.log(resp_obj);
+    add_question(resp_obj);
+}
+
+function split_response(req_data) {
+    const request = req_data.choices[0].text.split("?")
+
+    const question = request[0];
+    const answer = request[1];
+
+    return {
+        "question": question,
+        "answer": answer
+    }
+}
+
 
 function show_answer(){
     document.getElementById('answer').style.display = "block";
-}
-
-function show_feedback(){
-    document.getElementById('feedback').style.display = "block";
 }
