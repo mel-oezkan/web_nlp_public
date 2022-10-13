@@ -22,95 +22,65 @@ body {
 }
 
 .MainContent {
-    margin: 20px 10vw;
-    text-align: center;
+    display: flex;
+    color: white;
 }
 
+.UserInput {
+    flex: 100 200px 1;
+    background-color: #92B489;
+}
 
-.MainContent > .ContentInput {
-
-    background-color: var(--MAIN_BOX_BACKGROUND_COLOR);
-    width: 600px;
+.UserInput > .Btn-Request {
     display: flex;
-    padding: 20px;
-    gap: 20px;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin: 10px auto auto auto;
-}
-
-.MainContent > .ContentInput > .PromptInput {
-    display: flex;
-    flex-direction: column;
     gap: 10px;
+    padding: 0 20px 0 10px;
+    
+    height: 50px;
+    color: white;
+    font-weight: bold;
+
+    border: 2px solid rgba(0, 0, 0, 0);
+    background-color: #14274E;
 }
 
+.UserInput > .Btn-Request > img {
+    height: 30px;
+}
 
-.MainContent > .ContentInput > .PromptInput > p{
+.CustomDropdown {
+    display: flex;
+}
+
+.CustomDropdown > .DropHead > img{
+    width: 30px;
+    height: 30px;
+
+}
+
+.CustomDropdown > .DropHead {
+    display: flex;
+    align-items: center;
+}
+
+.CustomDropdown > .DropHead > p {
     margin: 0;
 }
 
-.MainContent > .ContentInput > .PromptInput > input {
-    background-color: var(--MAIN_BOX_INPUT_COLOR);
-    outline: none;
-    height: 30px;
-    width: 300px;
-    padding-left: 10px;
-    color: white;
-    border: 2px solid rgba(0,0,0,0);
-}
-
-.MainContent > .ContentInput > .PromptInput > input[type=text]:focus {
-    background-color: inherit;
-    color: black;
-    border: 2px solid #A1A6B4;
-}
-
-.MainContent > .ContentInput > .ModeSelector {
+.CustomDropdown > .DropContent {
     display: flex;
-    height: 40px;
-    align-items: center;
-    gap: 10px;
 }
 
-.MainContent > .ContentInput > .ModeSelector > select{
-    width: 100px;
+.QuestionContent {
+    flex: 100;
 }
 
+.QuestionContent > .ActiveContent {
+    background-color: #92B489;
 
-.MainContent > .ContentInput > .UserInput {
-    justify-self: flex-end;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+     /* Debug */
+     height: 400px;
+     width: 400px;
 }
 
-.MainContent > .ContentInput > .UserInput > .Btn-Request {
-    height: 50px;
-    padding: 0 25px 0 15px;
-    color: white;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    background-color: #14274E;
-
-    font-weight: bold;
-    border: none;
-}
-
-.Btn-Request > img {
-    height: 30px;
-}
-
-
-.Btn-Request:hover {
-    background-color: #A1A6B4;
-}
-
-
-.answer_box {
-    display: none;
-    color:rgb(0, 0, 0);
-    font-size: 30px;
-}

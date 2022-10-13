@@ -16,68 +16,60 @@
     </head>
     <body>
 
+    
         <div class="MainContent">
+            <div class="UserInput">
+    
+                <div class="CustomDropdown">
+                    <div class="DropHead">
+                        <img src="/static/icons/question_topic.png" alt="">
+                        <p>Question Topic</p>
+                    </div>
+                    <div class="DropContent"></div>
+                </div>
 
-        <div class="ContentInput">
+                <div class="CustomDropdown">
+                    <div class="DropHead">
+                        <img src="/static/icons/question_type.png" alt="">
+                        <p>Question Type</p>
+                    </div>
+                    <div class="DropContent"></div>
+                </div>
 
-        <div class="PromptInput">
-            <p>Enter a topic:</p>
-            <input type="text" id="input">
-        </div>    
+                <div class="CustomDropdown">
+                    <div class="DropHead">
+                        <img src="/static/icons/question_diff.png" alt="">
+                        <p>Question Difficulty</p>
+                    </div>
+                    <div class="DropContent"></div>
+                </div>
+    
+                <p class="response" id="name" style="color:rgb(0, 0, 0); font-size: 30px"></p>
+                <button 
+                    class="Btn-Request"
+                    type="respose_test" 
+                    onclick="run_model()"
+                >
+                    <img src="/static/icons/add.png" alt="">
+                    Generate Question
+                </button>
 
-        
-        <div class="ModeSelector">
-            <label for="mode">Choose a difficulty:</label>
-            <select name="mode" id="mode">
-                <option value="easy">Easy</option>
-                <option value="normal">Normal</option>
-                <option value="hard">Hard</option>
-            </select>
+                <button class="btn btn-danger btn-block" onclick="show_answer()">Click to show answer</button>
+                <p id="answer" class="answer_box"></p>
+            </div>
+
+            <div class="QuestionContent">
+                <div class="ActiveContainer"></div>
+                <div class="StorageContainer"></div>
+            </div>
+
+            </div>
+                <button class="btn btn-danger btn-block" onclick="show_feedback()">Click to get feedback</button>
+                <p id="feedback" class="answer_box"></p>
+            </div>
+
         </div>
 
-        <div class="UserInput">
-
-            
-
-            <p class="response" id="name" style="color:rgb(0, 0, 0); font-size: 30px"></p>
-            <button 
-                class="Btn-Request"
-                type="respose_test" 
-                onclick="run_model()"
-            >
-                <img src="/static/icons/add.png" alt="">
-                Generate Question
-            </button>
-
-            <button class="btn btn-danger btn-block" onclick="show_answer()">Click to show answer</button>
-            <p id="answer" class="answer_box"></p>
-        </div>
-        </div>
-        <button class="btn btn-danger btn-block" onclick="show_feedback()">Click to get feedback</button>
-        <p id="feedback" class="answer_box"></p>
-
-        <br>
-        <br>
-
-        <div>
-            ----------- Speech Test -----------
-        </div>
-
-        <br>
-        <br>
-
-        <button id="start-btn" class="btn btn-danger btn-block">Start</button>
-        <p id="instructions">Press the Start button</p>
-
-        <textarea id="textbox" rows="6" class="form-control"></textarea>
-
-
-        <button
-            onclick="debugAddStorage()"
-        >Add Question</button>
-        <button
-            onclick="logQuestions()"
-        >Log Question</button>
 
         <script src="script.js"></script>
         <script src="speech.js"></script>
