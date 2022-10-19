@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { IQuestionItem } from '../../../view';
 import { useHotkeys } from 'react-hotkeys-hook';
 
+import './style.scss';
+
 export function FlipQuestion({
   questionItem,
 }: {
@@ -13,9 +15,13 @@ export function FlipQuestion({
   return (
     <div className="FlipQuestion">
       {showQuestion ? (
-        <p>{questionItem.question}</p>
+        <div className="FlipQuestionWrapper">
+          <p>{questionItem.question}</p>
+        </div>
       ) : (
-        <p>{questionItem.answer}</p>
+        <div className="FlipAnswerWrapper">
+          <p>{questionItem.answer}</p>
+        </div>
       )}
     </div>
   );

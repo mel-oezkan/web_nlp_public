@@ -1,8 +1,9 @@
 import React from 'react';
-import './style.scss';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { IQuestionItem } from '../../view';
 import { FlipQuestion } from './FlipQuestion';
+
+import './style.scss';
 
 export const ActiveQuestion = ({
   activeIndex,
@@ -23,6 +24,7 @@ export const ActiveQuestion = ({
   }
 
   const questionType = 'Flip Card';
+
   useHotkeys(
     'right',
     () => setActiveIndex(Math.min(activeIndex + 1, questionBuffer.length - 1)),
