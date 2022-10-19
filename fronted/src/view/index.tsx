@@ -41,11 +41,15 @@ export function ViewHandler(): JSX.Element {
             exit={{ y: -1, opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            {questionBuffer && (
+            {questionBuffer.length > 0 ? (
               <ActiveQuestion
                 activeIndex={activeIndex}
                 setActiveIndex={setActiveIndex}
               />
+            ) : (
+              <div className="QuestionWrapper">
+                <div className="QuestionContent"></div>
+              </div>
             )}
           </motion.div>
         </AnimatePresence>

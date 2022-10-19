@@ -28,6 +28,7 @@ body {
   height: 90%;
   margin: auto;
   display: flex;
+  justify-content: center;
   gap: 30px;
 
   .QuestionHandler {
@@ -35,5 +36,6 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
+    max-width: 800px;
   }
 }

@@ -25,7 +25,9 @@ export const Dropdown = ({
           </div>
         )}
         <div className="DropdownInfo">
-          <p style={active ? { fontSize: '7pt' } : {}}>{title}</p>
+          <p style={active ? { fontSize: '7pt', fontWeight: 'normal' } : {}}>
+            {title}
+          </p>
           <p>{active}</p>
         </div>
 

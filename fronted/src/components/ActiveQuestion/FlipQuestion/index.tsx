@@ -58,11 +58,7 @@ export function FlipQuestion({
               <>
                 {showQuestion ? (
                   <div className="QuestionDisplay FlipQuestionWrapper">
-                    <p>
-                      {questionBuffer[activeIndex]
-                        ? questionBuffer[activeIndex].question
-                        : ''}
-                    </p>
+                    <p>{questionBuffer[activeIndex].question}</p>
                   </div>
                 ) : (
                   <div className="QuestionDisplay FlipAnswerWrapper">
