@@ -19,9 +19,13 @@ export const Dropdown = ({
   return (
     <div className="Dropdown">
       <div className="DropdownHead">
-        {imgSrc && <img src={imgSrc} alt="dropdown icon" />}
-        <div className="DropInfo">
-          <p style={active ? { fontSize: '2pt' } : {}}>{title}</p>
+        {imgSrc && (
+          <div className="DropdownIcon">
+            <img src={imgSrc} alt="dropdown icon" />
+          </div>
+        )}
+        <div className="DropdownInfo">
+          <p style={active ? { fontSize: '7pt' } : {}}>{title}</p>
           <p>{active}</p>
         </div>
 
@@ -36,7 +40,16 @@ export const Dropdown = ({
       {dropped && (
         <div className="DropdownOptions">
           {options.map(option => (
-            <p key={option}>{option}</p>
+            <div
+              key={option}
+              className="DropdownOption"
+              onClick={() => {
+                setActive(option);
+                setDropped(false);
+              }}
+            >
+              <p>{option}</p>
+            </div>
           ))}
         </div>
       )}

@@ -1,0 +1,29 @@
+.UserInput {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 25px 15px;
+  background-color: #92b489;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.35));
+  border-radius: 5px;
+  height: fit-content;
+  min-width: 300px;
+
+  button {
+    display: flex;
+    margin-top: 10px;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.35));
+    align-items: center;
+    height: 50px;
+    gap: 10px;
+    padding: 0 10px;
+    border: none;
+    background-color: #14274e;
+    color: white;
+    font-weight: bold;
+
+    img {
+      height: 35px;
+    }
+  }
+}
