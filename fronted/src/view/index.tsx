@@ -6,6 +6,7 @@ import UserInput from '../components/UserInput';
 import { useLocalStorage } from 'usehooks-ts';
 
 import './style.scss';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export interface IQuestionItem {
   question: string;
@@ -28,12 +29,27 @@ export function ViewHandler(): JSX.Element {
         setQuestionBuffer={setQuestionBuffer}
       />
       <div className="QuestionHandler">
-        <ActiveQuestion
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-          questionBuffer={questionBuffer}
-          setQuestionBuffer={setQuestionBuffer}
-        />
+        <AnimatePresence exitBeforeEnter>
+          <motion.div
+            key={
+              questionBuffer[activeIndex]
+                ? questionBuffer[activeIndex].question
+                : 'empty'
+            }
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -1, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            {questionBuffer && (
+              <ActiveQuestion
+                activeIndex={activeIndex}
+                setActiveIndex={setActiveIndex}
+              />
+            )}
+          </motion.div>
+        </AnimatePresence>
+
         <QuesitonBuffer
           questions={questionBuffer}
           activeIndex={activeIndex}

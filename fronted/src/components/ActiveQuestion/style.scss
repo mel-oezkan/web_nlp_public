@@ -1,51 +1,19 @@
-.ActiveQuestion {
+.QuestionWrapper {
   background-color: #92b489;
-  padding: 25px 15px;
+  position: relative;
 
-  .ActiveHead {
+  .QuestionContent {
+    padding: 10px;
     display: flex;
-    justify-content: space-between;
+    min-height: 400px;
+    flex-direction: column;
 
-    p {
-      margin: 0;
-      height: 45px;
-      background-color: #f8f8f8;
-      line-height: 45px;
-      font-weight: bold;
-      padding: 0 10px;
-    }
-
-    .ImgButton {
-      height: 45px;
-      width: 45px;
-      background-color: #b7c9b3;
+    .QuestionDisplay {
+      flex: 100;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-
-      img {
-        height: 32px;
-      }
-    }
-  }
-
-  .ActiveQuestionContent {
-    min-height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-  }
-
-  .ActiveQuestionHandler {
-    display: flex;
-    justify-content: space-between;
-
-    .ImgButton {
-      img {
-        height: 42px;
-      }
     }
   }
 }
