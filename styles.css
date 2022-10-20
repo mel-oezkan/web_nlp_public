@@ -1,6 +1,7 @@
 
 :root {
-    --PAGE_BACKGROUND_COLOR: #F8F8F8;
+    --PAGE_BACKGROUND_COLOR: #DDDDDD;
+    --MAIN_CONTENT_COLOR: #92B489;
     --MAIN_BOX_BACKGROUND_COLOR: #E5E5E5;
     --MAIN_BOX_INPUT_COLOR: #A1A6B4;
     --MAIN_BOX_REQUEST_BUTTON_COLOR: #94C5CC;
@@ -19,103 +20,129 @@ body {
     left: 0;
     margin: 0;
     width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .MainContent {
-    margin: 20px 10vw;
-    text-align: center;
-}
-
-
-.MainContent > .ContentInput {
-
-    background-color: var(--MAIN_BOX_BACKGROUND_COLOR);
-    width: 600px;
     display: flex;
-    padding: 20px;
+    color: white;
+    height: 90%;
+    width: 90%;
     gap: 20px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 10px auto auto auto;
 }
 
-.MainContent > .ContentInput > .PromptInput {
+.UserInput {
+    flex: 100 200px 1;
+    padding: 20px 15px;
     display: flex;
-    flex-direction: column;
     gap: 10px;
+    flex-direction: column;
+    background-color: var(--MAIN_CONTENT_COLOR);
+    height: fit-content;
 }
 
-
-.MainContent > .ContentInput > .PromptInput > p{
-    margin: 0;
-}
-
-.MainContent > .ContentInput > .PromptInput > input {
-    background-color: var(--MAIN_BOX_INPUT_COLOR);
-    outline: none;
-    height: 30px;
-    width: 300px;
-    padding-left: 10px;
-    color: white;
-    border: 2px solid rgba(0,0,0,0);
-}
-
-.MainContent > .ContentInput > .PromptInput > input[type=text]:focus {
-    background-color: inherit;
-    color: black;
-    border: 2px solid #A1A6B4;
-}
-
-.MainContent > .ContentInput > .ModeSelector {
+.UserInput > .Btn-Request {
+    margin-top: 10px;
     display: flex;
-    height: 40px;
     align-items: center;
     gap: 10px;
-}
-
-.MainContent > .ContentInput > .ModeSelector > select{
-    width: 100px;
-}
-
-
-.MainContent > .ContentInput > .UserInput {
-    justify-self: flex-end;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.MainContent > .ContentInput > .UserInput > .Btn-Request {
+    padding: 0 20px 0 10px;
+    
     height: 50px;
-    padding: 0 25px 0 15px;
     color: white;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    background-color: #14274E;
+    font-weight: bold;
 
+    border: 2px solid rgba(0, 0, 0, 0);
+    background-color: #14274E;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.35));
+}
+
+.UserInput > .Btn-Request > img {
+    height: 30px;
+}
+
+.CustomDropdown {
+    display: flex;
+    position: relative;
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.35));
+
+}
+
+.CustomDropdown > .DropHead > img{
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+
+}
+
+.CustomDropdown > .DropHead {
+    display: flex;
+    color: black;
+    align-items: center;
+    background-color: #F8F8F8;
+    width: 100%;
+    gap: 10px;
+    height: 40px;
+}
+
+.CustomDropdown > .DropHead:hover {
+    background-color: goldenrod;
+}
+
+.CustomDropdown > .DropHead > input {
+    margin: 0;
+    font-size: 9pt;
     font-weight: bold;
     border: none;
+    outline: none;
+    margin-right: 10px;
+    background-color: inherit;
+
 }
 
-.Btn-Request > img {
-    height: 30px;
-}
-
-
-.Btn-Request:hover {
-    background-color: #A1A6B4;
-}
-
-
-.answer_box {
+.CustomDropdown > .DropContent {
     display: none;
-    color:rgb(0, 0, 0);
-    font-size: 30px;
+    position: absolute;
+    top: 40px;
+    z-index: 10;
+    width: 100%;
+    flex-direction: column;
+    background-color: #F8F8F8;
 }
 
-.feedback_box {
-    color:rgb(0, 0, 0);
-    font-size: 30px;
+.DropContent > a {
+    display: flex;
+    align-items: center;
+    color: black;
+    height: 30px;
+    display: flex;
+    border-bottom: 2px solid #14274E;
+    padding-left: 10px;
 }
+
+.DropContent > a:first-child {
+    border-top: 2px solid #14274E;
+}
+
+
+.CustomDropdown > .show {
+    display: flex;
+}
+
+.QuestionContent {
+    width: 800px;
+    height: 50%;
+    background-color: var(--MAIN_CONTENT_COLOR);
+}
+
+.QuestionContent > .ActiveContent {
+    background-color: #92B489;
+
+     /* Debug */
+     height: 400px;
+     width: 400px;
+}
+
