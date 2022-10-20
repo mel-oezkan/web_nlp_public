@@ -28,6 +28,11 @@ export function TypeHandler({
 
   return (
     <div className="TypeHandler">
+      <div className="TypeSelector">
+        <div className="TypeSelectorHead">{questionType}</div>
+        <div className="TypeSelectorDropdown"></div>
+      </div>
+
       <div className="ImgButton" onClick={() => deleteQuesiton()}>
         <img src="trash_white.png" alt="" />
       </div>

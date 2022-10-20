@@ -3,12 +3,15 @@ import axios from 'axios';
 import { IQuestionItem } from '../../view';
 import { Dropdown } from '../Common/Dropdown';
 import {
+  questionTypesItems,
   questionDifficulties,
-  questionTypes,
   questionCategories,
-} from './dropdown_options';
+} from '../Common/commons';
 import './style.scss';
 import { IResponseObj } from './utils';
+
+const questionTypeOpts = questionTypesItems.map(item => item.value);
+const questionDiffOpts = questionDifficulties.map(item => item.value);
 
 export default function UserInput({
   questionBuffer,
@@ -91,14 +94,14 @@ export default function UserInput({
     <div className="UserInput">
       <Dropdown
         title="Question Type"
-        options={questionTypes}
+        options={questionTypeOpts}
         active={activeType}
         setActive={setActiveType}
         imgSrc="question_type.png"
       />
       <Dropdown
         title="Quesiton Difficulty"
-        options={questionDifficulties}
+        options={questionDiffOpts}
         active={activeDiff}
         setActive={setActiveDiff}
         imgSrc="question_difficulty.png"

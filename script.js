@@ -103,6 +103,7 @@ async function generate_question() {
     // Get the text from the input box, id = input
     let subject = document.getElementById("input").value;
     subject = subject ? subject : "Neuroscience";
+    
     const mode = document.getElementById("mode").value ?? "easy";
 
     console.log("subject: ", subject);

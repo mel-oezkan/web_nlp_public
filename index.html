@@ -10,6 +10,8 @@
         <script src="./script.js"></script>
         <script src="speech.js"></script>
         <script src="storageHandler.js"></script>
+        <script src="./intefaceFunctions.js"></script>
+
 
         <script>
             $(document).ready(() => {
@@ -19,65 +21,103 @@
         </script>
     </head>
     <body>
-
     
         <div class="MainContent">
             <div class="UserInput">
     
                 <div class="CustomDropdown">
-                    <div class="DropHead">
+                    <div 
+                        class="DropHead"
+                        onclick="handleDropdown('QTopic')"
+                    >
                         <img src="/static/icons/question_topic.png" alt="">
-                        <p>Question Topic</p>
+                        <input type="text" id="Head-QTopic" value="Question Topic" readonly="True">
                     </div>
-                    <div class="DropContent"></div>
+
+                    <div 
+                        id="Drop-QTopic"
+                        class="DropContent"
+                    >
+                        <a onclick="handleValue('QTopic', 'neurobio')">Neurobiology</a>
+                        <a onclick="handleValue('QTopic', 'cl')">Computational Linguisticy</a>
+                        <a onclick="handleValue('QTopic', 'philo')">Philosophy</a>
+                        <a onclick="handleValue('QTopic', 'neuropsy')">Neuropsychology</a>
+                    </div>
                 </div>
 
                 <div class="CustomDropdown">
-                    <div class="DropHead">
+                    <div 
+                        class="DropHead"
+                        onclick="handleDropdown('QType')"
+                    >
                         <img src="/static/icons/question_type.png" alt="">
-                        <p>Question Type</p>
+                        <input type="text" id="Head-QType" value="Question Type" readonly="True">
                     </div>
-                    <div class="DropContent"></div>
+
+                    <div 
+                        id="Drop-QType"
+                        class="DropContent"
+                    >
+                        <a onclick="handleValue('QType', 'tf')">True/False</a>
+                        <a onclick="handleValue('QType', 'mc')">Multiple Choice</a>
+                    </div>
                 </div>
 
                 <div class="CustomDropdown">
-                    <div class="DropHead">
+                    <div 
+                        class="DropHead"
+                        onclick="handleDropdown('QDiff')"
+                    >
                         <img src="/static/icons/question_diff.png" alt="">
-                        <p>Question Difficulty</p>
+                        <input type="text" id="Head-QDiff" value="Question Type" readonly="True">
                     </div>
-                    <div class="DropContent"></div>
+
+                    <div 
+                        id="Drop-QDiff"
+                        class="DropContent"
+                    >
+                        <a onclick="handleValue('QDiff', 'easy')">easy</a>
+                        <a onclick="handleValue('QDiff', 'medium')">medium</a>
+                        <a onclick="handleValue('QDiff', 'hard')">hard</a>
+
+                    </div>
                 </div>
+
+                
     
-                <p class="response" id="name" style="color:rgb(0, 0, 0); font-size: 30px"></p>
                 <button 
                     class="Btn-Request"
                     type="respose_test" 
-                    onclick="run_model()"
+                    onclick="generate_question()"
                 >
                     <img src="/static/icons/add.png" alt="">
                     Generate Question
                 </button>
 
-                <button class="btn btn-danger btn-block" onclick="show_answer()">Click to show answer</button>
-                <p id="answer" class="answer_box"></p>
             </div>
 
             <div class="QuestionContent">
-                <div class="ActiveContainer"></div>
+
+                <div class="ActiveContainer">
+                    <div class="QuestionContainerHead">
+                        <p>Definition</p>
+
+                        <div class="QuestionTypeBlock">
+                            <p>F</p>
+                        </div>
+                    </div>
+
+                </div>
                 <div class="StorageContainer"></div>
             </div>
 
-            </div>
-                <button class="btn btn-danger btn-block" onclick="show_feedback()">Click to get feedback</button>
-                <p id="feedback" class="answer_box"></p>
-            </div>
+            <p id="answer" class="answer_box"></p>
+            <p class="response" id="name" style="color:rgb(0, 0, 0); font-size: 30px"></p>
+
 
         </div>
 
 
-        <button
-            onclick="testFunction()"
-        >Test ouput</button>
 
       
     
