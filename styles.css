@@ -1,0 +1,121 @@
+
+:root {
+    --PAGE_BACKGROUND_COLOR: #F8F8F8;
+    --MAIN_BOX_BACKGROUND_COLOR: #E5E5E5;
+    --MAIN_BOX_INPUT_COLOR: #A1A6B4;
+    --MAIN_BOX_REQUEST_BUTTON_COLOR: #94C5CC;
+}
+
+
+html {
+    background-color: var(--PAGE_BACKGROUND_COLOR);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100vw;
+}
+
+.MainContent {
+    margin: 20px 10vw;
+    text-align: center;
+}
+
+
+.MainContent > .ContentInput {
+
+    background-color: var(--MAIN_BOX_BACKGROUND_COLOR);
+    width: 600px;
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto auto auto;
+}
+
+.MainContent > .ContentInput > .PromptInput {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.MainContent > .ContentInput > .PromptInput > p{
+    margin: 0;
+}
+
+.MainContent > .ContentInput > .PromptInput > input {
+    background-color: var(--MAIN_BOX_INPUT_COLOR);
+    outline: none;
+    height: 30px;
+    width: 300px;
+    padding-left: 10px;
+    color: white;
+    border: 2px solid rgba(0,0,0,0);
+}
+
+.MainContent > .ContentInput > .PromptInput > input[type=text]:focus {
+    background-color: inherit;
+    color: black;
+    border: 2px solid #A1A6B4;
+}
+
+.MainContent > .ContentInput > .ModeSelector {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    gap: 10px;
+}
+
+.MainContent > .ContentInput > .ModeSelector > select{
+    width: 100px;
+}
+
+
+.MainContent > .ContentInput > .UserInput {
+    justify-self: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.MainContent > .ContentInput > .UserInput > .Btn-Request {
+    height: 50px;
+    padding: 0 25px 0 15px;
+    color: white;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background-color: #14274E;
+
+    font-weight: bold;
+    border: none;
+}
+
+.Btn-Request > img {
+    height: 30px;
+}
+
+
+.Btn-Request:hover {
+    background-color: #A1A6B4;
+}
+
+
+.answer_box {
+    display: none;
+    color:rgb(0, 0, 0);
+    font-size: 30px;
+}
+
+.feedback_box {
+    color:rgb(0, 0, 0);
+    font-size: 30px;
+}

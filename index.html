@@ -7,7 +7,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
-        <script src="./script.js"></script>
+        <script src="script.js"></script>
         <script src="speech.js"></script>
         <script src="storageHandler.js"></script>
         <script src="./intefaceFunctions.js"></script>
@@ -94,9 +94,12 @@
                     Generate Question
                 </button>
 
-            </div>
-
-            <div class="QuestionContent">
+            <button class="btn btn-danger btn-block" onclick="show_answer()">Click to show answer</button>
+            <p id="answer" class="answer_box"></p>
+        </div>
+        </div>
+        <button class="btn btn-danger btn-block" onclick="feedback();clearInput()">Click to get feedback</button>
+        <p id="feedback"></p>
 
                 <div class="ActiveContainer">
                     <div class="QuestionContainerHead">
@@ -118,11 +121,11 @@
         </div>
 
 
-
-      
-    
-
+        <button
+            onclick="testFunction()"
+        >Test ouput</button>
     </div>
-    
+    <script src="script.js"></script>
+    <script src="speech.js"></script>
     </body>
 </html>

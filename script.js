@@ -55,10 +55,16 @@ async function run_model(){
     // Only show answer when the user clicks the button
     document.getElementById('answer').innerHTML= answer;
     document.getElementById('answer').style.display = "none";
+}
 
+async function feedback(){
+    var answer = document.getElementById("textbox").value;
+    var question = document.getElementById("name").innerHTML;
+    question = question.replace(/(\r\n|\n|\r)/gm, "");
     // -------------------------------------------------------------------------------------
-    // Feedback (needs to be a separate function !!!!!!!!)
-    // -------------------------------------------------------------------------------------
+
+    console.log("question: ", question);
+    console.log("answer: ", answer);
 
     const input_2 = `You are a professor in an oral exam at a university. 
 
@@ -90,8 +96,11 @@ async function run_model(){
     const data_2 = await response_2.json();
     var feedback = data_2.choices[0].text;
 
+    console.log(feedback);
+
     // Only show when button pressed
     document.getElementById('feedback').innerHTML= feedback;
+    document.getElementById('feedback').style.display = "block";
 }
 
 function testFunction (){
@@ -155,4 +164,8 @@ function split_response(req_data) {
 
 function show_answer(){
     document.getElementById('answer').style.display = "block";
+}
+
+function clearInput(){
+    document.getElementById('input').value = "";
 }
