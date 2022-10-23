@@ -1,6 +1,6 @@
 {
-  "homepage": "https://avocardio.github.io/nlpproject",
-  "name": "fronted",
+  "homepage": "https://mel-oezkan.github.io/web_nlp",
+  "name": "frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
