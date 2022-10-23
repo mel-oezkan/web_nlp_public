@@ -70,8 +70,8 @@ export default function UserInput({
       setQuestionBuffer([
         ...questionBuffer,
         {
-          question: question,
-          answer: answer,
+          question,
+          answer,
         },
       ]);
 

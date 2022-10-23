@@ -9,8 +9,6 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <HashRouter basename="/">
-      <App />
-    </HashRouter>
+    <App />
   </React.StrictMode>
 );
