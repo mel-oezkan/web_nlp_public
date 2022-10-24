@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocalStorage } from 'usehooks-ts';
 import { IQuestionItem } from '../../../view';
+import { questionTypesItems } from '../../Common/commons';
 
 export function TypeHandler({
   questionType,
@@ -30,7 +31,15 @@ export function TypeHandler({
     <div className="TypeHandler">
       <div className="TypeSelector">
         <div className="TypeSelectorHead">{questionType}</div>
-        <div className="TypeSelectorDropdown"></div>
+        <div className="TypeSelectorDropdown">
+          {questionTypesItems.map((item, index) => (
+            <div className="QuestionTypeItem" key={index}>
+              <div className="QuestionTypeImg">
+                <img src={item.icon.black} alt="" />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="ImgButton" onClick={() => deleteQuesiton()}>
