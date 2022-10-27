@@ -11,6 +11,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 export interface IQuestionItem {
   question: string;
   answer: string;
+  topic: string;
   options?: string[];
 }
 

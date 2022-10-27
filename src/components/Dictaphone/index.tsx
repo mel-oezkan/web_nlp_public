@@ -23,7 +23,7 @@ export const Dictaphone = ({
   };
 
   if (!browserSupportsSpeechRecognition) {
-    return <span>Test</span>;
+    return null;
   }
 
   return (

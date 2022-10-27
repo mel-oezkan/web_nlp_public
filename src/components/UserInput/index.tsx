@@ -8,7 +8,8 @@ import {
   questionCategories,
 } from '../Common/commons';
 import './style.scss';
-import { IResponseObj } from './utils';
+import { IResponseObj } from '../Common/types';
+import { QuestionGenerator } from '../QuestionGenerator';
 
 const questionDiffOpts = questionDifficulties.map(item => item.value);
 const questionCateOpts = questionCategories.map(item => item.name);
@@ -24,70 +25,6 @@ export default function UserInput({
 }) {
   const [activeDiff, setActiveDiff] = useState('');
   const [activeCate, setActiveCate] = useState('');
-
-  const [error, setError] = useState('');
-
-  async function requestGeneration() {
-    setError('');
-
-    if (!activeDiff || !activeCate) {
-      setError('Please select all options');
-      return;
-    }
-
-    const input = `You are a professor in an oral exam at a university.
-    The subject is ${activeCate}. Ask me a ${activeDiff} knowledge question about the subject and answer it
-    in a new line.{}`;
-
-    try {
-      const { data } = await axios.post<IResponseObj>(
-        'https://api.openai.com/v1/completions',
-        {
-          model: 'text-ada-001',
-          prompt: input,
-          max_tokens: 100,
-          temperature: 0.8,
-          top_p: 1,
-          frequency_penalty: 0,
-          presence_penalty: 0,
-          stop: ['{}'],
-        },
-        {
-          headers: {
-            Authorization:
-              'Bearer REDACTED_API_KEY',
-          },
-        }
-      );
-
-      console.log(data);
-      const respStr = data.choices[0].text.split('?');
-
-      const question = respStr[0] + '?';
-      const answer = respStr[1];
-
-      setQuestionBuffer([
-        ...questionBuffer,
-        {
-          question,
-          answer,
-        },
-      ]);
-
-      setActiveIndex(questionBuffer.length);
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        console.log(error.response?.data);
-        setError(error.response?.data);
-      } else {
-        console.log(error);
-      }
-    }
-  }
-
-  function handleSubmit() {
-    console.log('added question');
-  }
 
   return (
     <div className="UserInput">
@@ -106,12 +43,11 @@ export default function UserInput({
         imgSrc="question_category.png"
       />
 
-      {error && <p id="requestError">{error}</p>}
-
-      <button onClick={() => requestGeneration()}>
-        <img src="add.png" alt="" />
-        Generate Question
-      </button>
+      <QuestionGenerator
+        topic={activeCate}
+        difficulty={activeDiff}
+        setActiveIndex={setActiveIndex}
+      />
     </div>
   );
 }
