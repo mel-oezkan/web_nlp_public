@@ -13,6 +13,8 @@ export async function requestCompletion(topic: string, difficulty: string) {
     The subject is ${topic}. Ask me a ${difficulty} knowledge question about the subject and answer it
     in a new line. ${additionalQuestions} {}`;
 
+  console.log('propmpt: ', input);
+
   const { data } = await axios.post<IResponseObj>(
     'https://api.openai.com/v1/completions',
     {

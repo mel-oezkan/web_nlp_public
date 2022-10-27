@@ -28,6 +28,7 @@ export const QuestionGenerator = ({
 
     await requestCompletion(topic, difficulty)
       .then(data => {
+        console.log('response: ', data);
         addToStorage(buffer, setBuffer, data, topic);
         setError('');
       })

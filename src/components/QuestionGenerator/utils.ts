@@ -5,6 +5,20 @@ import {
   IResponseObj,
 } from '../Common/types';
 
+function formatOuput(value: string) {
+  const cleanStr = value.trimStart().replaceAll('\n', '');
+  const sub = cleanStr.substring(0, 2);
+
+  console.log(cleanStr);
+  console.log('sub: ', sub);
+
+  if (sub === 'Q:' || sub === 'A:') {
+    return value.substring(5);
+  }
+
+  return value;
+}
+
 function stringifySuplementItem(item: IQuestionSuplementItem) {
   return `Q: ${item.question} \nA: ${item.answer}
 `;
@@ -25,9 +39,13 @@ export function addToStorage(
   topic: string
 ) {
   const respStr = newItem.choices[0].text.split('?');
+  console.log(respStr);
 
-  const question = respStr[0] + '?';
-  const answer = respStr[1];
+  console.log(respStr[0]);
+  const question = formatOuput(respStr[0]);
+  const answer = formatOuput(respStr[1]);
+
+  console.log(question);
 
   setContext([
     ...context,
