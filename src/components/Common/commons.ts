@@ -26,4 +26,9 @@ export const questionDifficulties = [
   { name: 'hard', value: 'Hard' },
 ];
 
-export const questionCategories = ['General', 'Math', 'Science', 'History'];
+export const questionCategories = [
+  { name: 'Artificial Intelligence', value: 'ai' },
+  { name: 'Neurobiology', value: 'n-bio' },
+  { name: 'Computational Linguistics', value: 'cl' },
+  { name: 'Custom', value: 'custom' },
+];

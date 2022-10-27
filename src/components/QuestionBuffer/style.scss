@@ -15,15 +15,19 @@
     .QuestionBox {
       height: 150px;
       width: 250px;
+
       background-color: #92b489;
       opacity: 0.5;
       display: flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
 
       p {
         margin: 0;
-        font-size: 9pt;
+        font-size: 10pt;
+        vertical-align: middle;
+        width: 90%;
       }
     }
 

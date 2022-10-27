@@ -10,8 +10,8 @@ import {
 import './style.scss';
 import { IResponseObj } from './utils';
 
-const questionTypeOpts = questionTypesItems.map(item => item.value);
 const questionDiffOpts = questionDifficulties.map(item => item.value);
+const questionCateOpts = questionCategories.map(item => item.name);
 
 export default function UserInput({
   questionBuffer,
@@ -22,7 +22,6 @@ export default function UserInput({
   setActiveIndex: (value: number) => void;
   setQuestionBuffer: (value: IQuestionItem[]) => void;
 }) {
-  const [activeType, setActiveType] = useState('');
   const [activeDiff, setActiveDiff] = useState('');
   const [activeCate, setActiveCate] = useState('');
 
@@ -93,13 +92,6 @@ export default function UserInput({
   return (
     <div className="UserInput">
       <Dropdown
-        title="Question Type"
-        options={questionTypeOpts}
-        active={activeType}
-        setActive={setActiveType}
-        imgSrc="question_type.png"
-      />
-      <Dropdown
         title="Quesiton Difficulty"
         options={questionDiffOpts}
         active={activeDiff}
@@ -108,7 +100,7 @@ export default function UserInput({
       />
       <Dropdown
         title="Question Category"
-        options={questionCategories}
+        options={questionCateOpts}
         active={activeCate}
         setActive={setActiveCate}
         imgSrc="question_category.png"

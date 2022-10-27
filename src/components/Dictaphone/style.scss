@@ -1,0 +1,14 @@
+$btn-size: 40px;
+.DictButton {
+  border: none;
+  height: $btn-size;
+  width: $btn-size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: calc($btn-size - 15px);
+    height: calc($btn-size - 15px);
+  }
+}

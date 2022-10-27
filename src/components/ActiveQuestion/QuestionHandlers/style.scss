@@ -2,6 +2,44 @@
   display: flex;
   justify-content: space-between;
 
+  .TypeSelector {
+    position: relative;
+
+    .QuestionTypeItem {
+      width: 50px;
+      height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      border: 2px solid black;
+      position: relative;
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .QuestionTypeTooltip {
+      top: 25px;
+      left: 25px;
+      background-color: red;
+      width: fit-content;
+      font-size: 9pt;
+      padding: 2px 5px;
+      z-index: 10;
+      visibility: hidden;
+    }
+
+    .QuestionTypeItem:hover .QuestionTypeTooltip {
+      visibility: visible;
+    }
+
+    .TypeSelectorDrop {
+      position: absolute;
+    }
+  }
+
   p {
     margin: 0;
     height: 45px;
@@ -12,15 +50,18 @@
   }
 
   .ImgButton {
-    height: 45px;
-    width: 45px;
-    background-color: #b7c9b3;
+    border: 2px solid black;
+
+    height: 50px;
+    background-color: white;
+    width: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 100%;
 
     img {
-      height: 32px;
+      height: 25px;
     }
   }
 }
@@ -31,7 +72,7 @@
 
   .ImgButton {
     img {
-      height: 42px;
+      height: 30px;
     }
   }
 }

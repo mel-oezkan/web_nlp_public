@@ -15,13 +15,13 @@ export const ActiveQuestion = ({
   activeIndex: number;
   setActiveIndex: (value: number) => void;
 }) => {
-  const [questionType, setQuestionType] = useState('answer');
+  const [questionType, setQuestionType] = useState('qa');
 
   return (
     <div className="ActiveQuestion">
       {(() => {
         switch (questionType) {
-          case 'flip':
+          case 'fl':
             return (
               <FlipQuestion
                 activeIndex={activeIndex}
@@ -31,7 +31,7 @@ export const ActiveQuestion = ({
               />
             );
 
-          case 'answer':
+          case 'qa':
             return (
               <QuestionAnswer
                 activeIndex={activeIndex}

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import { handleKeyDown, handleSubmit } from './handler';
 import './style.scss';
 
 export const Dropdown = ({
@@ -14,7 +15,9 @@ export const Dropdown = ({
   setActive: (value: string) => void;
   imgSrc?: string;
 }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
   const [dropped, setDropped] = useState(false);
+  const [tempValue, setTempValue] = useState('');
 
   return (
     <div className="Dropdown">
@@ -28,7 +31,26 @@ export const Dropdown = ({
           <p style={active ? { fontSize: '7pt', fontWeight: 'normal' } : {}}>
             {title}
           </p>
-          <p>{active}</p>
+          {active === 'Custom' ? (
+            <div className="CustomItemHandler">
+              <form
+                action=""
+                onSubmit={e => handleSubmit(e, tempValue, setActive)}
+                onKeyDown={e => handleKeyDown(e, inputRef, setTempValue)}
+              >
+                <input
+                  ref={inputRef}
+                  type="text"
+                  value={tempValue}
+                  onChange={e => {
+                    setTempValue(e.target.value);
+                  }}
+                />
+              </form>
+            </div>
+          ) : (
+            <p>{active}</p>
+          )}
         </div>
 
         <div className="DropdownHandler" onClick={() => setDropped(!dropped)}>
@@ -39,22 +61,23 @@ export const Dropdown = ({
         </div>
       </div>
 
-      {dropped && (
-        <div className="DropdownOptions">
-          {options.map(option => (
-            <div
-              key={option}
-              className="DropdownOption"
-              onClick={() => {
-                setActive(option);
-                setDropped(false);
-              }}
-            >
-              <p>{option}</p>
-            </div>
-          ))}
-        </div>
-      )}
+      <div
+        className="DropdownOptions"
+        style={dropped ? { display: 'block' } : { display: 'none' }}
+      >
+        {options.map(option => (
+          <div
+            key={option}
+            className="DropdownOption"
+            onClick={() => {
+              setActive(option);
+              setDropped(false);
+            }}
+          >
+            <p>{option}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
