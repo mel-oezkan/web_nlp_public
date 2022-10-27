@@ -1,3 +1,5 @@
+import { Categories } from './commons';
+
 interface IChoiceItem {
   text: string;
   index: number;

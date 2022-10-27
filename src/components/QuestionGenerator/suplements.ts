@@ -1,4 +1,5 @@
 import { IQuestionSuplement } from '../Common/types';
+// import {Categories } from '../Common/commons';
 
 export const propmtSuplement: IQuestionSuplement = {
   Neurobiology: [

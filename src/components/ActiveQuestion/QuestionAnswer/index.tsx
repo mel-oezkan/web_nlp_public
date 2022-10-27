@@ -5,7 +5,7 @@ import { IQuestionItem } from '../../../view';
 import { Dictaphone } from '../../Dictaphone';
 import { IndexHandler } from '../QuestionHandlers/IndexHandler';
 import { TypeHandler } from '../QuestionHandlers/TypeHandler';
-import { handleSubmit } from './handler';
+import { requestFeedback } from './handler';
 
 import './style.scss';
 
@@ -21,26 +21,38 @@ export function QuestionAnswer({
   setQuestionType: (value: string) => void;
 }) {
   const [answer, setAnswer] = useState('');
+  const [tmpAnswer, setTmpAnswer] = useState('');
   const changeAnswer = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAnswer(e.target.value);
+    setTmpAnswer(e.target.value);
   };
 
-  const { feedback, generateFeedback } = useFeedbackHandler();
+  const [feedback, setFeedack] = useState('');
   const [questionBuffer] = useLocalStorage<IQuestionItem[]>(
     'questionBuffer',
     []
   );
 
-  function handleFeedback(value: number) {
-    return () => {
-      console.log(value);
-    };
-  }
+  async function handleFeedback(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
 
-  const test = useCallback(() => {
-    const question = questionBuffer[activeIndex].question;
-    return generateFeedback(question, answer);
-  }, [activeIndex]);
+    if (answer !== tmpAnswer) {
+      setAnswer(tmpAnswer);
+      const activeItem = questionBuffer[activeIndex];
+
+      await requestFeedback(activeItem.question, tmpAnswer)
+        .then(data => {
+          console.log(data);
+          if (data.length <= 1) {
+            return;
+          }
+
+          setFeedack(data);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  }
 
   return (
     <div className="QuestionWrapper QuestionAnser">
@@ -60,10 +72,14 @@ export function QuestionAnswer({
 
                 <div className="QA-Input">
                   <p>Answer:</p>
-                  <form onSubmit={e => handleSubmit(e, test)}>
-                    <input type="text" value={answer} onChange={changeAnswer} />
+                  <form onSubmit={e => handleFeedback(e)}>
+                    <input
+                      type="text"
+                      value={tmpAnswer}
+                      onChange={changeAnswer}
+                    />
                   </form>
-                  <Dictaphone setContext={setAnswer} />
+                  <Dictaphone setContext={setTmpAnswer} />
                 </div>
 
                 <div className="QA-Feedback">

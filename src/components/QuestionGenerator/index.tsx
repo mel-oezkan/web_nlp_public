@@ -4,6 +4,7 @@ import { IQuestionItem } from '../../view';
 import { requestCompletion } from './handler';
 import { addToStorage } from './utils';
 import axios from 'axios';
+import { Categories } from '../Common/commons';
 
 export const QuestionGenerator = ({
   topic,

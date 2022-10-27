@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Categories } from '../Common/commons';
 import { IResponseObj } from '../Common/types';
 import { propmtSuplement } from './suplements';
 import { stringifyQuestionSuplements } from './utils';

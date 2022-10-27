@@ -21,14 +21,21 @@ export const questionTypesItems = [
 ];
 
 export const questionDifficulties = [
-  { name: 'easy', value: 'Easy' },
-  { name: 'medium', value: 'Medium' },
-  { name: 'hard', value: 'Hard' },
+  { value: 'easy', name: 'Easy' },
+  { value: 'medium', name: 'Medium' },
+  { value: 'hard', name: 'Hard' },
 ];
 
+export enum Categories {
+  AI = 'Artificial Intelligence',
+  CL = 'Computational Linguistics',
+  NEURO = 'Neurobiology',
+  CUSTOM = 'Custom',
+}
+
 export const questionCategories = [
-  { name: 'Artificial Intelligence', value: 'ai' },
-  { name: 'Neurobiology', value: 'n-bio' },
-  { name: 'Computational Linguistics', value: 'cl' },
-  { name: 'Custom', value: 'custom' },
+  { name: 'Artificial Intelligence', value: Categories.AI },
+  { name: 'Neurobiology', value: Categories.NEURO },
+  { name: 'Computational Linguistics', value: Categories.CL },
+  { name: 'Custom', value: Categories.CUSTOM },
 ];
