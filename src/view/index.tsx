@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { ActiveQuestion } from '../components/ActiveQuestion';
 import { QuesitonBuffer } from '../components/QuestionBuffer';
 import UserInput from '../components/UserInput';
+import create from 'zustand';
 
 import { useLocalStorage } from 'usehooks-ts';
 
 import './style.scss';
 import { AnimatePresence, motion } from 'framer-motion';
+import { usePageHandler } from '../stores/usePageHandler';
 
 export interface IQuestionItem {
   question: string;
@@ -16,7 +18,7 @@ export interface IQuestionItem {
 }
 
 export function ViewHandler(): JSX.Element {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const activeIndex = usePageHandler(state => state.activeIndex);
   const [questionBuffer, setQuestionBuffer] = useLocalStorage<IQuestionItem[]>(
     'questionBuffer',
     []
@@ -24,29 +26,23 @@ export function ViewHandler(): JSX.Element {
 
   return (
     <div className="ViewHandler">
-      <UserInput
-        questionBuffer={questionBuffer}
-        setActiveIndex={setActiveIndex}
-        setQuestionBuffer={setQuestionBuffer}
-      />
+      <div className="SideBar">
+        <UserInput />
+        <QuesitonBuffer />
+      </div>
+
       <div className="QuestionHandler">
         <AnimatePresence exitBeforeEnter>
           <motion.div
-            key={
-              questionBuffer[activeIndex]
-                ? questionBuffer[activeIndex].question
-                : 'empty'
-            }
+            className="QuestionHandlerWrapper"
+            key={activeIndex}
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -1, opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
             {questionBuffer.length > 0 ? (
-              <ActiveQuestion
-                activeIndex={activeIndex}
-                setActiveIndex={setActiveIndex}
-              />
+              <ActiveQuestion />
             ) : (
               <div className="QuestionWrapper">
                 <div className="QuestionContent"></div>
@@ -54,12 +50,6 @@ export function ViewHandler(): JSX.Element {
             )}
           </motion.div>
         </AnimatePresence>
-
-        <QuesitonBuffer
-          questions={questionBuffer}
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-        />
       </div>
     </div>
   );

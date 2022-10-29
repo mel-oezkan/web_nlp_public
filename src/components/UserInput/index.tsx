@@ -2,27 +2,14 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { IQuestionItem } from '../../view';
 import { Dropdown } from '../Common/Dropdown';
-import {
-  questionTypesItems,
-  questionDifficulties,
-  questionCategories,
-} from '../Common/commons';
+import { questionDifficulties, categoryOptions } from '../Common/commons';
 import './style.scss';
 import { IResponseObj } from '../Common/types';
 import { QuestionGenerator } from '../QuestionGenerator';
 
-const questionDiffOpts = questionDifficulties.map(item => item.value);
-const questionCateOpts = questionCategories.map(item => item.name);
+const questionDiffOpts = questionDifficulties.map(item => item.name);
 
-export default function UserInput({
-  questionBuffer,
-  setQuestionBuffer,
-  setActiveIndex,
-}: {
-  questionBuffer: IQuestionItem[];
-  setActiveIndex: (value: number) => void;
-  setQuestionBuffer: (value: IQuestionItem[]) => void;
-}) {
+export default function UserInput() {
   const [activeDiff, setActiveDiff] = useState('');
   const [activeCate, setActiveCate] = useState('');
 
@@ -37,17 +24,13 @@ export default function UserInput({
       />
       <Dropdown
         title="Question Category"
-        options={questionCateOpts}
+        options={categoryOptions}
         active={activeCate}
         setActive={setActiveCate}
         imgSrc="question_category.png"
       />
 
-      <QuestionGenerator
-        topic={activeCate}
-        difficulty={activeDiff}
-        setActiveIndex={setActiveIndex}
-      />
+      <QuestionGenerator topic={activeCate} difficulty={activeDiff} />
     </div>
   );
 }

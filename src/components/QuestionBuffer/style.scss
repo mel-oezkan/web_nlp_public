@@ -1,4 +1,6 @@
 .QuestionBuffer {
+  flex: 100;
+
   margin-top: 20px;
   position: relative;
   display: flex;
@@ -8,13 +10,13 @@
 
   .BufferWrapper {
     display: flex;
+    flex-direction: column;
     gap: 10px;
 
     position: absolute;
 
     .QuestionBox {
-      height: 150px;
-      width: 250px;
+      height: 125px;
 
       background-color: #92b489;
       opacity: 0.5;

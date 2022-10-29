@@ -35,10 +35,10 @@ export function stringifyQuestionSuplements(items: IQuestionSuplementItem[]) {
 export function addToStorage(
   context: IQuestionItem[],
   setContext: (value: IQuestionItem[]) => void,
-  newItem: IResponseObj,
+  newItem: string,
   topic: string
 ) {
-  const respStr = newItem.choices[0].text.split('?');
+  const respStr = newItem.split('?');
   console.log(respStr);
 
   console.log(respStr[0]);

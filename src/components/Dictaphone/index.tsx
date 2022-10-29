@@ -41,7 +41,6 @@ export const Dictaphone = ({
       >
         <img src="micro_white.png" alt="" />
       </button>
-      <p>{transcript}</p>
     </div>
   );
 };

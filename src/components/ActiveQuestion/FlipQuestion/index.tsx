@@ -7,20 +7,11 @@ import { TypeHandler } from '../QuestionHandlers/TypeHandler';
 import { useLocalStorage } from 'usehooks-ts';
 import { motion } from 'framer-motion';
 import { IndexHandler } from '../QuestionHandlers/IndexHandler';
+import { usePageHandler } from '../../../stores/usePageHandler';
 
-export function FlipQuestion({
-  // questionBuffer,
-  activeIndex,
-  questionType,
-  setActiveIndex,
-  setQuestionType,
-}: {
-  // questionBuffer: IQuestionItem[];
-  activeIndex: number;
-  questionType: string;
-  setActiveIndex: (value: number) => void;
-  setQuestionType: (value: string) => void;
-}): JSX.Element {
+export function FlipQuestion(): JSX.Element {
+  const activeIndex = usePageHandler(state => state.activeIndex);
+
   const [showQuestion, setShowQuestion] = useState(true);
   useHotkeys(
     'space',
@@ -30,7 +21,7 @@ export function FlipQuestion({
     [showQuestion]
   );
 
-  const [questionBuffer, setQuestionBuffer] = useLocalStorage<IQuestionItem[]>(
+  const [questionBuffer] = useLocalStorage<IQuestionItem[]>(
     'questionBuffer',
     []
   );
@@ -45,12 +36,7 @@ export function FlipQuestion({
       transition={{ duration: 0.2 }}
     >
       <div className="QuestionContent">
-        <TypeHandler
-          activeIndex={activeIndex}
-          questionType={questionType}
-          setActiveIndex={setActiveIndex}
-          setQuestionType={setQuestionType}
-        />
+        <TypeHandler />
 
         {questionBuffer && (
           <>
@@ -69,10 +55,7 @@ export function FlipQuestion({
             )}
           </>
         )}
-        <IndexHandler
-          activeIndex={activeIndex}
-          setActiveIndex={setActiveIndex}
-        />
+        <IndexHandler />
       </div>
     </motion.div>
   );

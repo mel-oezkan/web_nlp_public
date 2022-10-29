@@ -1,22 +1,32 @@
-.QuestionWrapper {
-  background-color: #92b489;
-  position: relative;
+.ActiveQuestion {
+  height: 100%;
+  display: flex;
 
-  .QuestionContent {
-    padding: 10px;
+  .QuestionWrapper {
+    flex: 100;
     display: flex;
-    min-height: 400px;
-    flex-direction: column;
+    background-color: #92b489;
+    position: relative;
 
-    .QuestionDisplay {
+    .QuestionContent {
       flex: 100;
+      padding: 10px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
 
-      color: white;
-      font-weight: bold;
+      .QuestionDisplay {
+        flex: 100;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 80%;
+        margin: auto;
+
+        color: white;
+        font-weight: bold;
+      }
     }
   }
 }

@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { Categories } from '../commons';
 import { handleKeyDown, handleSubmit } from './handler';
 import './style.scss';
 
@@ -31,7 +32,7 @@ export const Dropdown = ({
           <p style={active ? { fontSize: '7pt', fontWeight: 'normal' } : {}}>
             {title}
           </p>
-          {active === 'Custom' ? (
+          {active === Categories.CUSTOM ? (
             <div className="CustomItemHandler">
               <form
                 action=""
@@ -60,9 +61,9 @@ export const Dropdown = ({
           />
         </div>
       </div>
-
       <div
         className="DropdownOptions"
+        onMouseLeave={() => setDropped(false)}
         style={dropped ? { display: 'block' } : { display: 'none' }}
       >
         {options.map(option => (

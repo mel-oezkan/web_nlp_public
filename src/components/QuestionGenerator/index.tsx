@@ -5,16 +5,17 @@ import { requestCompletion } from './handler';
 import { addToStorage } from './utils';
 import axios from 'axios';
 import { Categories } from '../Common/commons';
+import { usePageHandler } from '../../stores/usePageHandler';
 
 export const QuestionGenerator = ({
   topic,
   difficulty,
-  setActiveIndex,
 }: {
   topic: string;
   difficulty: string;
-  setActiveIndex: (value: number) => void;
 }) => {
+  const setActiveIndex = usePageHandler(state => state.setActiveIndex);
+
   const [error, setError] = useState('');
   const [buffer, setBuffer] = useLocalStorage<IQuestionItem[]>(
     'questionBuffer',
@@ -28,8 +29,13 @@ export const QuestionGenerator = ({
     }
 
     await requestCompletion(topic, difficulty)
-      .then(data => {
+      .then((data: string) => {
         console.log('response: ', data);
+        if (data.length <= 1) {
+          alert('No questions found');
+          return;
+        }
+
         addToStorage(buffer, setBuffer, data, topic);
         setError('');
       })

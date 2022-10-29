@@ -6,6 +6,7 @@ $btn-size: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 6px;
 
   img {
     width: calc($btn-size - 15px);

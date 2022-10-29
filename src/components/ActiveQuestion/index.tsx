@@ -1,45 +1,23 @@
 import React, { useState } from 'react';
-import { useHotkeys } from 'react-hotkeys-hook';
-import { useLocalStorage } from 'usehooks-ts';
-import { IQuestionItem } from '../../view';
 import { FlipQuestion } from './FlipQuestion';
-import { motion } from 'framer-motion';
 
 import './style.scss';
 import { QuestionAnswer } from './QuestionAnswer';
+import { usePageHandler } from '../../stores/usePageHandler';
 
-export const ActiveQuestion = ({
-  activeIndex,
-  setActiveIndex,
-}: {
-  activeIndex: number;
-  setActiveIndex: (value: number) => void;
-}) => {
-  const [questionType, setQuestionType] = useState('qa');
+export const ActiveQuestion = () => {
+  const activeType = usePageHandler(state => state.activeType);
+  const activeIndex = usePageHandler(state => state.activeIndex);
 
   return (
     <div className="ActiveQuestion">
       {(() => {
-        switch (questionType) {
+        switch (activeType) {
           case 'fl':
-            return (
-              <FlipQuestion
-                activeIndex={activeIndex}
-                questionType={questionType}
-                setActiveIndex={setActiveIndex}
-                setQuestionType={setQuestionType}
-              />
-            );
+            return <FlipQuestion />;
 
           case 'qa':
-            return (
-              <QuestionAnswer
-                activeIndex={activeIndex}
-                questionType={questionType}
-                setActiveIndex={setActiveIndex}
-                setQuestionType={setQuestionType}
-              />
-            );
+            return <QuestionAnswer />;
         }
       })()}
     </div>

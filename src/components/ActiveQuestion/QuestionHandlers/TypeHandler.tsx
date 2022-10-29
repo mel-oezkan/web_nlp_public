@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { useLocalStorage } from 'usehooks-ts';
+import { usePageHandler } from '../../../stores/usePageHandler';
 import { IQuestionItem } from '../../../view';
 import { questionTypesItems } from '../../Common/commons';
 
@@ -23,17 +24,10 @@ const subMenuAnimate = {
   },
 };
 
-export function TypeHandler({
-  questionType,
-  activeIndex,
-  setActiveIndex,
-  setQuestionType,
-}: {
-  questionType: string;
-  activeIndex: number;
-  setActiveIndex: (value: number) => void;
-  setQuestionType: (value: string) => void;
-}): JSX.Element {
+export function TypeHandler(): JSX.Element {
+  const { activeType, setActiveType, activeIndex, setActiveIndex } =
+    usePageHandler(state => state);
+
   const [isMouse, toggleMouse] = useState(false);
 
   const [questionBuffer, setQuestionBuffer] = useLocalStorage<IQuestionItem[]>(
@@ -50,7 +44,7 @@ export function TypeHandler({
   }
 
   function indexActive() {
-    return questionTypesItems.filter(item => item.name === questionType)[0].icon
+    return questionTypesItems.filter(item => item.name === activeType)[0].icon
       .black;
   }
 
@@ -81,7 +75,7 @@ export function TypeHandler({
             <div
               className="QuestionTypeItem"
               key={index}
-              onClick={() => setQuestionType(item.name)}
+              onClick={() => setActiveType(item.name)}
             >
               <div className="QuestionTypeImg">
                 <img src={item.icon.black} alt="" />

@@ -30,11 +30,19 @@ body {
   justify-content: center;
   gap: 30px;
 
+  .SideBar {
+    display: flex;
+    flex-direction: column;
+  }
+
   .QuestionHandler {
     flex: 100;
     display: flex;
     flex-direction: column;
     position: relative;
     max-width: 800px;
+    .QuestionHandlerWrapper {
+      height: 100%;
+    }
   }
 }

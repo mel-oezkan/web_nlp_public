@@ -36,5 +36,5 @@ export async function requestCompletion(topic: string, difficulty: string) {
     }
   );
 
-  return data;
+  return data.choices[0].text;
 }

@@ -33,6 +33,13 @@ export enum Categories {
   CUSTOM = 'Custom',
 }
 
+export const categoryOptions = [
+  'Artificial Intelligence',
+  'Computational Linguistics',
+  'Neurobiology',
+  'Custom',
+];
+
 export const questionCategories = [
   { name: 'Artificial Intelligence', value: Categories.AI },
   { name: 'Neurobiology', value: Categories.NEURO },

@@ -1,9 +1,20 @@
 .QA-Wrapper {
-  gap: 20px;
+  gap: 5%;
+
+  .QA-Question {
+    flex: 50%;
+    display: flex;
+    align-items: flex-end;
+  }
+
   .QA-Input {
-    width: 80%;
+    flex: 45%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 
     p {
+      text-align: left;
       margin: 0;
       margin-bottom: 5px;
       font-size: 9pt;
@@ -11,20 +22,42 @@
       color: white;
     }
 
-    form {
-      text-align: center;
-      background-color: white;
-      border-radius: 6px;
+    .AnswerInputField {
       display: flex;
+      position: relative;
 
-      input {
+      form {
         flex: 100;
-        margin: 0 10px;
-        padding: 0;
-        border: none;
-        outline: none;
-        height: 40px;
+        text-align: center;
+        background-color: white;
+        border-radius: 6px;
+        display: flex;
+
+        input {
+          flex: 100;
+          margin: 0 10px;
+          padding: 0;
+          border: none;
+          outline: none;
+          height: 40px;
+        }
       }
+
+      .VoiceInputWrapper {
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+
+  .QA-Feedback {
+    width: 100%;
+    margin-top: 20px;
+
+    p {
+      text-align: center;
+      color: lightgray;
+      font-size: 10pt;
     }
   }
 }

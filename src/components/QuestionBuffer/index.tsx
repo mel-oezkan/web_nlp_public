@@ -1,20 +1,20 @@
 import React from 'react';
+import { useLocalStorage } from 'usehooks-ts';
+import { usePageHandler } from '../../stores/usePageHandler';
 import { IQuestionItem } from '../../view';
 import './style.scss';
 
-export function QuesitonBuffer({
-  questions,
-  activeIndex,
-  setActiveIndex,
-}: {
-  questions: IQuestionItem[];
-  activeIndex: number;
-  setActiveIndex: (value: number) => void;
-}): JSX.Element {
+export function QuesitonBuffer(): JSX.Element {
+  const { activeIndex, setActiveIndex } = usePageHandler(state => state);
+  const [questionBuffer] = useLocalStorage<IQuestionItem[]>(
+    'questionBuffer',
+    []
+  );
+
   return (
     <div className="QuestionBuffer">
       <div className="BufferWrapper">
-        {questions.map((question, index) => (
+        {questionBuffer.map((question, index) => (
           <div
             key={question.question}
             className={[
