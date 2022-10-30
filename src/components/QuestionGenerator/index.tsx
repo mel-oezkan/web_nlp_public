@@ -31,6 +31,7 @@ export const QuestionGenerator = ({
     await requestCompletion(topic, difficulty)
       .then((data: string) => {
         console.log('response: ', data);
+
         if (data.length <= 1) {
           alert('No questions found');
           return;

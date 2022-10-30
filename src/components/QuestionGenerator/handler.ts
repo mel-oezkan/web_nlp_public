@@ -19,7 +19,8 @@ export async function requestCompletion(topic: string, difficulty: string) {
   const { data } = await axios.post<IResponseObj>(
     'https://api.openai.com/v1/completions',
     {
-      model: 'text-ada-001',
+      // 'text-ada-001'
+      model: 'text-davinci-002',
       prompt: input,
       max_tokens: 100,
       temperature: 0.8,
@@ -36,5 +37,6 @@ export async function requestCompletion(topic: string, difficulty: string) {
     }
   );
 
+  console.log(data);
   return data.choices[0].text;
 }
