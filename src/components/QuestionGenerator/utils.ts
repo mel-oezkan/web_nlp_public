@@ -20,16 +20,16 @@ function formatOuput(value: string) {
 }
 
 function stringifySuplementItem(item: IQuestionSuplementItem) {
-  return `Q: ${item.question} \nA: ${item.answer}
-`;
+  return `Q: ${item.question} \nA: ${item.answer}`;
 }
 
 export function stringifyQuestionSuplements(items: IQuestionSuplementItem[]) {
   if (!items) return '';
-  return items.reduce(
-    (prev: string, curr) => prev + stringifySuplementItem(curr) + '\n',
-    '\n'
-  );
+  return items.map(item => stringifySuplementItem(item)).join('\n\n');
+  // return items.reduce(
+  //   (prev: string, curr) => prev + stringifySuplementItem(curr) + '\n',
+  //   '\n'
+  // );
 }
 
 export function addToStorage(

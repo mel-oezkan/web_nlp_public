@@ -38,6 +38,7 @@ export const QuestionGenerator = ({
         }
 
         addToStorage(buffer, setBuffer, data, topic);
+        setActiveIndex(buffer.length);
         setError('');
       })
       .catch(error => {
@@ -47,8 +48,6 @@ export const QuestionGenerator = ({
           console.log(error);
         }
       });
-
-    setActiveIndex(buffer.length);
   }
 
   return (

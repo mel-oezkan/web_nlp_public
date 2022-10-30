@@ -8,22 +8,36 @@
   height: fit-content;
   min-width: 300px;
 
-  button {
-    width: 100%;
-    display: flex;
-    margin-top: 10px;
-    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.35));
-    align-items: center;
-    height: 50px;
-    gap: 10px;
-    padding: 0 10px;
-    border: none;
-    background-color: #14274e;
-    color: white;
-    font-weight: bold;
+  .QuestionGenerator {
+    p {
+      font-size: 10pt;
+      color: red;
+    }
 
-    img {
-      height: 35px;
+    button {
+      width: 100%;
+      display: flex;
+      margin-top: 10px;
+      filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.35));
+      align-items: center;
+      height: 50px;
+      gap: 10px;
+      padding: 0 10px;
+      border: none;
+      background-color: #14274e;
+      color: white;
+      font-weight: bold;
+
+      img {
+        height: 35px;
+      }
+    }
+  }
+
+  .QuestionGenerator:hover {
+    button {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
   }
 
