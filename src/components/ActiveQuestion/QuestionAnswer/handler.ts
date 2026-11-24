@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { model } from '../../../config';
+import { apiKey, model } from '../../../config';
 import { IQuestionItem } from '../../../view';
 import { IResponseObj } from '../../Common/types';
 
@@ -23,8 +23,7 @@ export async function requestFeedback(question: string, answer: string) {
     },
     {
       headers: {
-        Authorization:
-          'Bearer REDACTED_API_KEY',
+        Authorization: `Bearer ${apiKey}`,
       },
     }
   );

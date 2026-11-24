@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { model } from '../../config';
+import { apiKey, model } from '../../config';
 import { Categories } from '../Common/commons';
 import { IResponseObj } from '../Common/types';
 import { propmtSuplement } from './suplements';
@@ -32,8 +32,7 @@ export async function requestCompletion(topic: string, difficulty: string) {
     },
     {
       headers: {
-        Authorization:
-          'Bearer REDACTED_API_KEY',
+        Authorization: `Bearer ${apiKey}`,
       },
     }
   );

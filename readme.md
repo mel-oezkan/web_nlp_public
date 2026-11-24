@@ -1,3 +1,11 @@
+## Setup
+
+```bash
+npm install
+cp .env.example .env   # then put your OpenAI API key in .env
+npm start
+```
+
 ## Todo
 
 - [x] Use input with quesiton topics
